@@ -67,3 +67,6 @@ docker_apt_key_id: 0EBFCD88
 docker_apt_key_url: https://download.docker.com/linux/{{ansible_os_family|lower}}/gpg
 docker_apt_repo_url: "deb [arch=amd64] https://download.docker.com/linux/{{ansible_os_family|lower}} {{ ansible_distribution_release }} stable"
 docker_apt_repo_url_edge: "deb [arch=amd64] https://download.docker.com/linux/{{ansible_os_family|lower}} {{ ansible_distribution_release }} edge"
+
+# docker user
+docker_users: []
