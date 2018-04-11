@@ -10,6 +10,9 @@
     - docker_ee_url is not defined
     - docker_edition == "ee"
 
+- name: Docker | Post Config
+  include: pre_config.yml
+
 - name: Docker | Storage Driver
   include: "storage_drivers/{{ docker_storage_driver }}.yml"
   when: docker_storage_driver is defined

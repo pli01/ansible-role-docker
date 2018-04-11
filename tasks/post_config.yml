@@ -1,6 +1,3 @@
-- name: Add "docker" group if not present
-  group: name=docker state=present
-
 - name: Add specific users to "docker" group
   user:
     name: "{{ item }}"

@@ -1,0 +1,2 @@
+- name: Add "docker" group if not present
+  group: name=docker state=present system=yes
