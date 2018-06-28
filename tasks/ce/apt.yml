@@ -6,6 +6,7 @@
     - ca-certificates
     - curl
     - software-properties-common
+  environment: "{{ proxy_env | default(omit) }}"
 
 - name: Docker | CE | APT | Perform specific os tasks
   include: os/{{ ansible_distribution|lower }}.yml
@@ -20,3 +21,4 @@
 - name: Docker | CE | APT | Install Docker Engine
   apt: name=docker-ce state=present
   notify: Docker | Restart Docker
+  environment: "{{ proxy_env | default(omit) }}"
