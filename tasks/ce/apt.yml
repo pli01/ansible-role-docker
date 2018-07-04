@@ -7,6 +7,9 @@
     - curl
     - software-properties-common
   environment: "{{ proxy_env | default(omit) }}"
+  register: result
+  until: result is succeeded
+  retries: 10
 
 - name: Docker | CE | APT | Perform specific os tasks
   include: os/{{ ansible_distribution|lower }}.yml
@@ -22,3 +25,6 @@
   apt: name=docker-ce state=present
   notify: Docker | Restart Docker
   environment: "{{ proxy_env | default(omit) }}"
+  register: result
+  until: result is succeeded
+  retries: 10
